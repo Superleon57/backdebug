@@ -1,0 +1,15 @@
+export enum Collections {
+  Carts = 'Carts',
+  Categories = 'Categories',
+  OrderItems = 'OrderItems',
+  Orders = 'Orders',
+  Products = 'Products',
+  ShopAdmins = 'ShopAdmins',
+  Shops = 'Shops',
+  UsersOrders = 'UsersOrders',
+  ValidationCodes = 'ValidationCodes',
+  DeliveryMans = 'DeliveryMans',
+  Users = 'users',
+  Variants = 'Variants',
+  CartItems = 'Items',
+}
