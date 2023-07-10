@@ -1,0 +1,23 @@
+declare const _default: {
+    NODE_ENV: string;
+    IS_DEV: boolean;
+    IS_DEV_OR_IS_TEST: boolean;
+    IS_TEST: boolean;
+    IS_PROD: boolean;
+    IS_SEED: boolean;
+    NODE_PORT: number;
+    CLIENT_URL_CORS: string;
+    FRONTEND_URL: string;
+    LOG_LEVEL: string;
+    BASE_URL: string;
+    DB_PG_HOST: string | undefined;
+    DB_PG_PORT: string | undefined;
+    DB_PG_USER: string | undefined;
+    DB_PG_PASSWORD: string | undefined;
+    DB_PG_DATABASE: string | undefined;
+    SEED_PASSWORD: string | undefined;
+    SEED_ADMIN_PASSWORD: string | undefined;
+    SEED_ADMIN_EMAIL: string | undefined;
+    DEVEMAIL: string | undefined;
+};
+export default _default;
