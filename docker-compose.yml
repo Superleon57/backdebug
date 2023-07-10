@@ -1,0 +1,54 @@
+version: '3.4'
+
+services:
+  livyou_db:
+    container_name: livyou_db
+    image: postgres:11
+    env_file:
+      - .env
+    environment:
+      POSTGRES_PASSWORD: ${DB_PG_PASSWORD}
+      POSTGRES_USER: ${DB_PG_USER}
+    ports:
+      - ${DB_PG_PORT}:5432
+    volumes:
+      - postgres:/var/lib/postgresql/data
+    healthcheck:
+      test: 'pg_isready -U ${DB_PG_USER}'
+      interval: 3s
+      timeout: 1s
+      retries: 5
+
+  livyou_pgadmin:
+    container_name: livyou_pgadmin
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: dev@livyou.com
+      PGADMIN_DEFAULT_PASSWORD: adminadmin
+    volumes:
+      - pgadmin:/var/lib/pgadmin/data
+    ports:
+      - 5433:80
+    depends_on:
+      - livyou_db
+    restart: unless-stopped
+
+  livyou_localstack:
+    image: localstack/localstack:latest
+    environment:
+      - SERVICES=s3
+      - DATA_DIR=/tmp/localstack/data
+      - DOCKER_HOST=unix:///var/run/docker.sock
+    env_file:
+      - .env
+    ports:
+      - 4566-4583:4566-4583
+    volumes:
+      - "${TMPDIR:-/tmp/localstack}:/tmp/localstack"
+      - "/var/run/docker.sock:/var/run/docker.sock"
+      - ./aws:/docker-entrypoint-initaws.d
+
+volumes:
+  postgres:
+  pgadmin:
+
