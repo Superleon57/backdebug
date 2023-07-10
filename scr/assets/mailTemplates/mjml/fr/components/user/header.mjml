@@ -1,0 +1,5 @@
+<mj-section>
+  <mj-column width="100%">
+    <mj-image src="https://{{frontend_url}}/assets/images/logoLivyou.png" alt="header image" padding="0px"></mj-image>
+  </mj-column>
+</mj-section>

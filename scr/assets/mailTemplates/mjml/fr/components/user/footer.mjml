@@ -1,0 +1,39 @@
+<mj-section>
+  <mj-column width="100%">
+    <mj-button color="white" background-color="#fd2b57" border-radius="1.125rem" color="white" font-family="Roboto, Arial, Helvetica, sans-serif;" padding="20px 0 0 0" font-size="20px"><a href="{{application_url}}">Télécharger l'application</a></mj-button>
+    <mj-text align="left" color="#000000" font-size="18px" font-family="Roboto, Arial, Helvetica, sans-serif;" padding-top="40px"> L'équipe Livyou
+    </mj-text>
+    <mj-social font-size="15px" icon-size="50px" mode="horizontal" padding="0">
+      <mj-social-element name="facebook-noshare" href="https://www.facebook.com/livyouapp" padding="10px">
+      </mj-social-element>
+      <mj-social-element name="linkedin-noshare" href="https://www.linkedin.com/company/livyou/" padding="10px">
+      </mj-social-element>
+      <mj-social-element name="instagram-noshare" href="https://www.instagram.com/livyou/" padding="10px">
+      </mj-social-element>
+    </mj-social>
+    <mj-image src="https://{{frontend_url}}/assets/images/logoLivyou.png" alt="header image" padding="0px"></mj-image>
+  </mj-column>
+</mj-section>
+<mj-wrapper full-width="full-width">
+  <mj-section background-color="#fd2b57">
+    <mj-column width="100%" padding="0">
+      <mj-text color="white" font-size="11px" align="center" line-height="16px">
+
+        Copyright &copy; 2022 Livyou SA , Tous droits réservés. </mj-text>
+
+    </mj-column>
+  </mj-section>
+  <mj-section padding-top="0" background-color="#fd2b57">
+    <mj-group>
+      <mj-column width="100%" padding-right="0">
+        <mj-text color="white" font-size="11px" align="center" line-height="16px" font-weight="bold">
+          <a class="footer-link" href="{{cgu_url}}">Privacy</a>&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;
+          {{#if unsubscribe_url}}
+                <a class="footer-link" href="{{unsubscribe_url}}">Se désinscrire</a>
+            {{/if}}
+        </mj-text>
+      </mj-column>
+    </mj-group>
+
+  </mj-section>
+</mj-wrapper>

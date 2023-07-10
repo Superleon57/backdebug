@@ -1,0 +1,19 @@
+  <mj-head>
+    <mj-attributes>
+      <mj-all padding="0px"></mj-all>
+      <mj-text font-family="Roboto, Arial, Helvetica, sans-serif;" padding="0 25px" font-size="18px"></mj-text>
+      <mj-section background-color="#ffffff"></mj-section>
+      <mj-class name="preheader" color="#000000" font-size="11px"></mj-class>
+    </mj-attributes>
+    <mj-style inline="inline">
+      a {
+        text-decoration: none !important;
+        color: inherit !important;
+      }
+    </mj-style>
+    <mj-style inline="inline">
+      .text-link {
+        color: #5e6ebf
+      }
+    </mj-style>
+  </mj-head>

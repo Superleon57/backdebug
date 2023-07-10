@@ -1,0 +1,142 @@
+/api/v1/protected/user/profile:
+  get:
+    tags: 
+    - user
+    summary: Return user profile
+    responses:
+      200:
+        description: this user
+        content:
+          application/json:
+             schema:
+               type: object
+               properties:
+                 payload:
+                  $ref: '#/components/schemas/user'
+      401:
+        description: You are not authentified, you must login first
+      403:
+        description: You are not authorized, you must have linker role
+
+/api/v1/protected/user/all:
+    get:
+      tags:
+      - user
+      summary: get all users
+      parameters:
+       - in: query
+         name: offset
+         schema:
+          type: integer
+       - in: query
+         name: limit
+         schema:
+          type: integer
+      responses:
+        200:
+          description: Return list of users
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  payload:
+                    type: array
+                    users:
+                        $ref: '#/components/schemas/user'
+                    example:
+                      $ref: '#/components/schemas/user'
+        401:
+          description: You are not authentified, you must login first
+        403:
+          description: You are not authorized, you must have partner role
+
+/api/v1/protected/user/{id}:
+  put:
+    tags:
+    - user
+    summary: Update a user
+    parameters:
+      - in: path
+        name: id
+        required:  true
+        description:  id of user to update
+        type:  string
+    responses:
+      200:
+        description: Has updated user
+      401:
+        description: You are not authentified, you must login first
+      403:
+        description: You are not authorized, you must have partner role
+
+components:
+   schemas:
+       user:
+        type: object
+        properties:
+          idUser: 
+            type: string
+            example: "e03fbc70-906c-4b2b-96d1-b20b3e5231fb"
+          firstName: 
+            type: string
+            example: "Alain"
+          lastName: 
+            type: string
+            example: "Dupont"
+          gender: 
+            type: enum
+            example: "Male"
+          phone: 
+            type: string
+            example: "+33601020304"
+          email: 
+            type: string
+            example: "alain.dupont@gmail.com"
+          roles: 
+            type: array  
+            example: ["PARTNER","PARTNER_ADMIN"]
+          photo: 
+            type: string
+            example: "assets/photo.png"
+          coverPicture: 
+            type: string
+            example: "assets/coverPicture.png"
+          cv: 
+            type: string
+            example: "assets/cv.png"
+          birthday: 
+            type: Date
+            example: "2000-09-30 00:00:00.000+00"
+          locale: 
+            type: string
+            example: "fr"
+          status: 
+            type: string
+            example: "None"
+          lastActivity": 
+            type: Date
+            example: "2021-09-30 09:20:32.056+00"
+          nickname: 
+            type: string
+            example: "adupont"
+          isNewsletterAccepted:
+            type: boolean
+            example: false
+          isActive: 
+            type: boolean
+            example: true
+          dateCreate: 
+            type: Date
+            example: "2021-09-30 09:20:32.056+00"
+          dateUpdate: 
+            type: Date
+            example: "2021-09-30 09:20:32.056+00"
+          sso: 
+            type: boolean
+            example: false
+          idCompany:
+            type: string
+            example: "467cb6bb-ce5a-40d5-8e04-ccf880fc90c4"
+        xml:
+            name: user

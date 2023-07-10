@@ -1,0 +1,26 @@
+/api/v1/health/:
+    get:
+        tags:
+            - health
+        summary: Get database status
+        responses:
+            200:
+                description: database status
+                content:
+                    application/json:
+                        schema:
+                            type: object
+                            properties:
+                                payload:
+                                    status:
+                                      type: string
+            503:
+                description: service status
+                content:
+                    application/json:
+                        schema:
+                            type: object
+                            properties:
+                                payload:
+                                    status:
+                                      type: string
