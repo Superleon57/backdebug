@@ -1,0 +1,33 @@
+body {
+    background-image: url(../images/background.png);
+    background-repeat: repeat;
+    margin: 0;
+}
+
+section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    text-align: center;
+}
+
+h1 {
+    font-family: "Arial";
+    font-size: 40px;
+    font-weight: bold
+}
+
+p {
+    font-family: "Arial";
+    font-size: 30px;
+    font-style: normal;
+    text-decoration: none;
+
+}
+
+p#error {
+    color: red;
+    font-size: 20px;
+}

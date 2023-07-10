@@ -1,0 +1,42 @@
+doctype html
+html(lang="fr")
+  head
+    meta(charset="UTF-8")
+    meta(http-equiv="X-UA-Compatible" content="IE=edge")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    link(rel="stylesheet" href="/public/assets/css/style.css")
+    title Onliv'you - Paiement
+  body
+    section
+      h1 Redirection vers le service de paiement
+      p Merci de patienter pendant que nous vous redirigeons vers le service de paiement sécurisé.
+
+
+
+form(method="POST", action=server)
+  input(type="hidden" name="PBX_SITE", value=data.PBX_SITE)
+  input(type="hidden" name="PBX_RANG", value=data.PBX_RANG)
+  input(type="hidden" name="PBX_IDENTIFIANT", value=data.PBX_IDENTIFIANT)
+  input(type="hidden" name="PBX_TOTAL", value=data.PBX_TOTAL)
+  input(type="hidden" name="PBX_DEVISE" value=data.PBX_DEVISE)
+  input(type="hidden" name="PBX_CMD", value=data.PBX_CMD)
+  input(type="hidden" name="PBX_PORTEUR", value=data.PBX_PORTEUR)
+  input(type="hidden" name="PBX_REPONDRE_A", value=data.PBX_REPONDRE_A)
+  input(type="hidden" name="PBX_RETOUR", value=data.PBX_RETOUR)
+  input(type="hidden" name="PBX_EFFECTUE", value=data.PBX_EFFECTUE)
+  input(type="hidden" name="PBX_ANNULE", value=data.PBX_ANNULE)
+  input(type="hidden" name="PBX_REFUSE", value=data.PBX_REFUSE)
+  input(type="hidden" name="PBX_HASH" value=data.PBX_HASH)
+  input(type="hidden" name="PBX_TIME", value=data.PBX_TIME)
+  input(type="hidden" name="PBX_SHOPPINGCART", value=data.PBX_SHOPPINGCART)
+  input(type="hidden" name="PBX_BILLING", value=data.PBX_BILLING)
+  input(type="hidden" name="PBX_REFABONNE" value=data.PBX_REFABONNE)
+  input(type="hidden" name="PBX_SOURCE" value=data.PBX_SOURCE)
+  input(type="hidden" name="PBX_HMAC", value=hmac)
+  input#submit_button(style="display: none" type="submit" value="Envoyer dans l'iFrame")
+
+
+script.
+  document.addEventListener("DOMContentLoaded", function () {
+    document.getElementById("submit_button").click();
+  });
